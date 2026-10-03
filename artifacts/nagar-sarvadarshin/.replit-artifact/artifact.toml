@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/"
+title = "Nagar Sarvadarshin"
+description = "A mobile civic intelligence app for capturing urban issues with camera and live GPS, consolidating duplicate reports into Civic Cases, and tracking municipal resolution."
+version = "1.0.0"
+id = "artifacts/nagar-sarvadarshin"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 23457
+
+[services.development]
+run = "pnpm --filter @workspace/nagar-sarvadarshin run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nagar-sarvadarshin", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/nagar-sarvadarshin", "run", "serve" ]
+
+[services.env]
+PORT = "23457"
+BASE_PATH = "/"

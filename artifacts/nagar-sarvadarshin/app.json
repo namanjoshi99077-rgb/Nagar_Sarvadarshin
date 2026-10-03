@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Nagar Sarvadarshin",
+    "slug": "nagar-sarvadarshin",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "nagar-sarvadarshin",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Use the camera to capture evidence of civic issues.",
+        "NSLocationWhenInUseUsageDescription": "Use your current location to route civic reports to the right municipal team.",
+        "NSMicrophoneUsageDescription": "Record an optional voice description for a civic report."
+      }
+    },
+    "android": {
+      "permissions": ["CAMERA", "ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "RECORD_AUDIO"]
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Nagar Sarvadarshin to photograph civic issues."
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow Nagar Sarvadarshin to record an optional voice report."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

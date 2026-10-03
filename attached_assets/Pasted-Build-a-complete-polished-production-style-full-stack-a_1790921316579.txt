@@ -1,0 +1,2454 @@
+Build a complete, polished, production-style full-stack application called:
+
+NAGAR SARVADARSHIN
+AI-Powered Mobile Civic Intelligence & Issue Resolution Platform
+
+IMPORTANT:
+This is NOT a simple complaint-registration website.
+
+The core experience must be:
+
+LIVE CAMERA → LIVE GPS → AI ISSUE DETECTION → DUPLICATE DETECTION → CIVIC CASE → PRIORITY → DEPARTMENT → MUNICIPAL ACTION → AI RESOLUTION VERIFICATION → CITIZEN NOTIFICATION
+
+The application is being developed as a hackathon/BTech project for:
+
+Problem Statement:
+PS ID: 26205
+
+Title:
+Student Innovation – Submit your ideas to address the growing pressures on the city's resources, transport networks, and logistic infrastructure.
+
+Organization:
+AICTE
+
+Department:
+AICTE, MIC-Student Innovation
+
+Category:
+Software
+
+Theme:
+Transportation & Logistics
+
+The application must strongly demonstrate its relevance to transportation, mobility, urban infrastructure, resource management and logistics.
+
+==================================================
+1. CORE PRODUCT VISION
+==================================================
+
+Nagar Sarvadarshin is a mobile-first AI civic intelligence platform.
+
+A citizen should be able to:
+
+1. Open the mobile application.
+2. Tap "Report Issue".
+3. Open the phone camera.
+4. Capture a civic problem.
+5. Automatically capture the user's current GPS location.
+6. Optionally record voice/video.
+7. Let AI analyze the evidence.
+8. Automatically classify the civic issue.
+9. Calculate severity and priority.
+10. Search nearby/existing complaints.
+11. Detect duplicate reports.
+12. If the same problem already exists, attach the new report to the existing Civic Case.
+13. Otherwise create a new Civic Case.
+14. Automatically route the case to the correct municipal department.
+15. Track the case.
+16. Receive notifications when the case status changes.
+
+The municipality/employee side should have a desktop/tablet-friendly command center where employees can:
+
+- review Civic Cases
+- review AI analysis
+- approve/reject cases
+- assign cases
+- view live GIS map
+- see transportation/mobility hotspots
+- manage SLA
+- update case status
+- upload resolution evidence
+- use AI-assisted resolution verification
+- escalate overdue cases
+- view analytics
+
+CORE MESSAGE:
+
+ONE PROBLEM.
+ONE CIVIC CASE.
+ONE COORDINATED RESPONSE.
+
+==================================================
+2. IMPORTANT PRODUCT POSITIONING
+==================================================
+
+Do NOT make this look like a generic government complaint portal.
+
+Position it as:
+
+"AI-powered civic intelligence for real-world urban problems."
+
+The strongest product statement:
+
+"Point your phone at a civic problem. Nagar Sarvadarshin captures the evidence, understands the issue, locates it, checks for duplicate reports, prioritizes it and routes it to the right municipal team."
+
+Main flow:
+
+Capture
+↓
+Locate
+↓
+Understand
+↓
+Consolidate
+↓
+Prioritize
+↓
+Route
+↓
+Resolve
+↓
+Verify
+↓
+Notify
+
+==================================================
+3. DESIGN PHILOSOPHY
+==================================================
+
+The citizen application must be MOBILE-FIRST.
+
+The municipal application must be DESKTOP/TABLET-FIRST.
+
+Do NOT simply make a desktop dashboard responsive.
+
+Create two different experiences:
+
+CITIZEN:
+Mobile-first civic reporting application.
+
+EMPLOYEE:
+Desktop municipal command center.
+
+Design style:
+
+Premium smart-city technology.
+
+Use:
+- deep navy
+- charcoal
+- slate
+- white
+- cyan
+- blue
+- teal
+- subtle gradients
+- glass panels
+- thin borders
+- soft shadows
+- clean typography
+- Inter / Geist / Manrope
+
+Avoid:
+- gaming UI
+- excessive neon
+- crypto-style design
+- childish design
+- excessive animations
+
+The application should look like a serious civic technology platform.
+
+==================================================
+4. TECHNOLOGY STACK
+==================================================
+
+Frontend:
+
+- Next.js 15+
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+- Recharts
+- React Leaflet
+- Leaflet
+- React Hook Form
+- Zod
+- Zustand where useful
+- Sonner for notifications
+- PWA support
+
+Backend:
+
+- Python 3.11+
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Pydantic
+- JWT authentication
+- bcrypt/passlib
+- Uvicorn
+
+Maps:
+
+- Leaflet
+- OpenStreetMap
+
+Do NOT require Google Maps API.
+
+AI:
+
+Do not require paid AI APIs.
+
+Initially implement deterministic/mock AI services with realistic results.
+
+Keep the architecture ready for:
+
+- LLM
+- computer vision
+- embeddings
+- vector database
+- image similarity
+- local models
+- OpenAI-compatible APIs
+
+The application must work without paid APIs.
+
+==================================================
+5. PROJECT STRUCTURE
+==================================================
+
+Create:
+
+nagar-sarvadarshin/
+
+frontend/
+backend/
+docker-compose.yml
+README.md
+.gitignore
+
+Frontend:
+
+frontend/
+  app/
+    login/
+    citizen/
+    citizen/report/
+    citizen/complaints/
+    citizen/complaints/[id]/
+    citizen/nearby/
+    citizen/notifications/
+    citizen/profile/
+    employee/
+    employee/approvals/
+    employee/cases/
+    employee/cases/[id]/
+    employee/map/
+    employee/analytics/
+    employee/notifications/
+    employee/profile/
+    admin/
+    about/
+    globals.css
+    layout.tsx
+
+  components/
+    camera/
+    maps/
+    civic/
+    dashboard/
+    ai/
+    forms/
+    layout/
+    notifications/
+    ui/
+
+  lib/
+  store/
+  types/
+  public/
+
+Backend:
+
+backend/
+  app/
+    main.py
+    database.py
+    models.py
+    schemas.py
+    auth.py
+    dependencies.py
+
+    routers/
+      auth.py
+      complaints.py
+      civic_cases.py
+      ai.py
+      map.py
+      analytics.py
+      notifications.py
+      employees.py
+
+    services/
+      ai_service.py
+      duplicate_service.py
+      priority_service.py
+      routing_service.py
+      sla_service.py
+      location_service.py
+      notification_service.py
+      resolution_service.py
+
+    seed.py
+
+  requirements.txt
+  .env.example
+
+==================================================
+6. FIRST SCREEN — LOGIN
+==================================================
+
+The first screen must be LOGIN.
+
+Unauthenticated user visiting "/" must be redirected to:
+
+/login
+
+Do NOT show a marketing landing page first.
+
+Login screen should be split into two sections on desktop and stacked on mobile.
+
+LEFT SIDE:
+
+NAGAR SARVADARSHIN
+
+AI-POWERED CIVIC INTELLIGENCE
+
+Tagline:
+
+"SEE THE PROBLEM. LOCATE THE IMPACT. RESOLVE THE CITY."
+
+Show an animated abstract smart-city/GIS visualization.
+
+Show floating labels:
+
+Pothole Detected
+Road Obstruction
+Water Leakage
+Waste Hotspot
+Streetlight Issue
+
+Show demo City Pulse:
+
+12,540 Reports
+8,920 Resolved
+2,340 Active
+186 High Priority
+27 Critical
+
+RIGHT SIDE:
+
+Welcome Back
+
+Tabs:
+
+Citizen
+Employee
+
+Citizen login:
+Email
+Password
+Remember me
+Forgot password
+Create account
+
+Employee login:
+Employee ID / Official Email
+Password
+Department
+
+Demo accounts:
+
+Citizen:
+citizen@demo.com
+citizen123
+
+Employee:
+employee@demo.com
+employee123
+
+Admin:
+admin@demo.com
+admin123
+
+Show:
+
+DEMO / PROTOTYPE ENVIRONMENT
+
+Privacy notice:
+
+"Sensitive reports are protected and identity access is restricted to authorized personnel."
+
+==================================================
+7. CITIZEN MOBILE HOME
+==================================================
+
+After citizen login:
+
+/citizen
+
+This must feel like a mobile application.
+
+Top:
+
+NAGAR SARVADARSHIN
+
+Good evening, Citizen
+
+Show current location:
+
+📍 Location Active
+Sector 14
+
+Main action must be huge:
+
+REPORT ISSUE
+
+Subtitle:
+
+"Capture a civic problem using camera + live location"
+
+Secondary actions:
+
+NEARBY ISSUES
+MY CASES
+
+Then:
+
+CITY PULSE
+
+12,540 Reports
+8,920 Resolved
+2,340 Active
+186 High Priority
+27 Critical
+
+Recent Civic Cases.
+
+Bottom mobile navigation:
+
+Home
+Report
+Nearby
+Cases
+Profile
+
+==================================================
+8. LIVE CAMERA REPORTING
+==================================================
+
+This is the MOST IMPORTANT feature.
+
+When user taps:
+
+REPORT ISSUE
+
+open a mobile reporting interface.
+
+The user should see:
+
+LIVE CAMERA
+
+Use the browser/device camera.
+
+Use:
+
+navigator.mediaDevices.getUserMedia()
+
+Request camera permission.
+
+Show real-time camera preview.
+
+Controls:
+
+Switch Camera
+Flash if supported
+Gallery
+Capture
+
+Do NOT analyze every camera frame.
+
+For the prototype:
+
+LIVE CAMERA PREVIEW
+→ USER CAPTURES IMAGE
+→ AI ANALYZES CAPTURED IMAGE
+
+This is more reliable.
+
+The screen should also show:
+
+📍 LIVE LOCATION
+
+GPS ACTIVE
+
+Latitude
+Longitude
+Accuracy
+
+Example:
+
+📍 Sector 14, Main Road
+Accuracy: ±8 meters
+
+Use:
+
+navigator.geolocation.watchPosition()
+
+when possible.
+
+Do not hardcode the user's real location.
+
+If location permission is denied:
+
+Show:
+
+"Location permission is required for accurate civic reporting."
+
+Provide:
+
+TRY AGAIN
+SELECT LOCATION MANUALLY
+
+==================================================
+9. LIVE LOCATION
+==================================================
+
+As soon as Report Issue opens:
+
+Request location permission.
+
+Capture:
+
+latitude
+longitude
+accuracy
+timestamp
+
+Use Leaflet/OpenStreetMap to show the current position.
+
+After capture:
+
+Show:
+
+CONFIRM LOCATION
+
+Map:
+
+📍 Current Position
+
+Address:
+
+Sector 14, Main Road
+
+Accuracy:
+
+8 meters
+
+Buttons:
+
+CONFIRM LOCATION
+CHANGE LOCATION
+
+Allow the user to drag the marker if GPS is inaccurate.
+
+Store:
+
+latitude
+longitude
+accuracy
+address
+location_timestamp
+
+==================================================
+10. ISSUE CATEGORIES
+==================================================
+
+Categories must strongly support Transportation & Logistics.
+
+Use:
+
+1. Potholes & Road Damage
+2. Road Obstruction
+3. Illegal Parking
+4. Traffic Signal Issue
+5. Bus Stop / Public Transport Issue
+6. Pedestrian Safety Hazard
+7. Street & Public Infrastructure
+8. Waste Management
+9. Water Supply & Pipeline
+10. Streetlight Issue
+11. Noise Complaint
+12. Public Safety Hazard
+13. Bribe / Corruption Complaint
+
+The most prominent categories should be transportation-related.
+
+==================================================
+11. AI AUTO CLASSIFICATION
+==================================================
+
+Allow:
+
+AI AUTO-DETECT
+
+The citizen should not necessarily have to choose a category.
+
+After image capture:
+
+show an AI processing screen.
+
+Example:
+
+ANALYZING CIVIC ISSUE
+
+✓ Reading image
+✓ Detecting objects
+✓ Classifying issue
+✓ Checking nearby cases
+✓ Detecting duplicates
+✓ Calculating priority
+✓ Selecting department
+
+Then show:
+
+AI ANALYSIS
+
+Category:
+Potholes & Road Damage
+
+Subcategory:
+Large Road Pothole
+
+Severity:
+HIGH
+
+Confidence:
+94%
+
+Priority:
+87 / 100
+
+Recommended Department:
+Roads & Infrastructure
+
+Reason:
+
+"Large road damage detected near a frequently used mobility corridor."
+
+Use deterministic prototype logic.
+
+==================================================
+12. VOICE REPORTING
+==================================================
+
+Add optional voice reporting.
+
+Button:
+
+🎤 DESCRIBE ISSUE
+
+Use browser MediaRecorder API.
+
+User can say:
+
+"There is a large pothole near the bus stand causing danger to two-wheelers."
+
+Show:
+
+LISTENING...
+
+Then:
+
+TRANSCRIBING...
+
+Then:
+
+"There is a large pothole near the bus stand..."
+
+For prototype purposes, provide a deterministic/mock transcription fallback if browser speech/audio processing is unavailable.
+
+Store:
+
+voice evidence
+transcript
+
+==================================================
+13. PHOTO / VIDEO EVIDENCE
+==================================================
+
+Allow:
+
+Camera photo
+Gallery photo
+Short video
+Voice description
+
+Validate uploads.
+
+Do not allow dangerous or unsupported files.
+
+Show preview before submission.
+
+User can:
+
+Retake
+Remove
+Add another evidence file
+
+==================================================
+14. DUPLICATE DETECTION
+==================================================
+
+This is one of the CORE innovations.
+
+Multiple citizens may report the same physical problem.
+
+Example:
+
+Citizen 1:
+"Large pothole near Central Market"
+
+Citizen 2:
+"Big road hole beside Central Market"
+
+Citizen 3:
+"Road damage near market"
+
+These should NOT become three independent municipal tasks.
+
+System should detect:
+
+same category
+similar description
+similar image
+nearby coordinates
+similar timestamp
+
+Use prototype scoring:
+
+Semantic similarity = 40%
+Visual similarity = 25%
+Geographic proximity = 25%
+Time similarity = 10%
+
+Example:
+
+Duplicate Score:
+
+94%
+
+Then show:
+
+EXISTING CIVIC CASE FOUND
+
+Civic Case:
+#P-1024
+
+Pothole near Central Market
+
+47 related reports
+
+Distance:
+82 meters
+
+Similarity:
+94%
+
+Buttons:
+
+LINK TO EXISTING CASE
+CREATE NEW CASE
+
+==================================================
+15. "ONE PROBLEM. ONE CIVIC CASE."
+==================================================
+
+This concept must be visible throughout the application.
+
+Explain visually:
+
+50 citizen reports
+↓
+AI duplicate detection
+↓
+1 Civic Case
+↓
+47 related reports
+↓
+1 coordinated municipal response
+
+Each citizen's report should still remain associated with the Civic Case.
+
+Database relationship:
+
+Complaint → CivicCase
+
+A Civic Case can have many complaints.
+
+==================================================
+16. PRIORITY ENGINE
+==================================================
+
+Calculate priority score from:
+
+Severity
+Safety risk
+Affected citizens
+Number of duplicate reports
+Location importance
+Complaint age
+
+Example:
+
+Severity = 25
+Safety Risk = 20
+Affected Citizens = 18
+Duplicate Reports = 12
+Location Importance = 8
+Complaint Age = 4
+
+Total:
+
+87 / 100
+
+Levels:
+
+0–30 LOW
+31–60 MEDIUM
+61–80 HIGH
+81–100 CRITICAL
+
+Show:
+
+LOW
+MEDIUM
+HIGH
+CRITICAL
+
+Do not use fake AI claims.
+
+Label prototype intelligence where appropriate.
+
+==================================================
+17. DEPARTMENT ROUTING
+==================================================
+
+Automatically recommend:
+
+Pothole → Roads & Infrastructure
+Road Obstruction → Traffic / Transport
+Illegal Parking → Traffic / Transport
+Traffic Signal → Traffic / Transport
+Bus Stop → Transport Department
+Waste → Waste Management
+Streetlight → Public Works
+Water → Water Supply
+Noise → Civic Enforcement
+Corruption → Vigilance / Authorized Officer
+Safety Hazard → Public Safety
+
+Employee can override AI recommendation.
+
+==================================================
+18. CIVIC CASE CREATION
+==================================================
+
+After AI analysis:
+
+If duplicate:
+
+LINK REPORT TO EXISTING CIVIC CASE
+
+Otherwise:
+
+CREATE NEW CIVIC CASE
+
+Example:
+
+Civic Case:
+
+#P-1024
+
+Pothole & Road Damage
+
+Priority:
+HIGH — 87
+
+Department:
+Roads & Infrastructure
+
+Location:
+Sector 14 Main Road
+
+Reports:
+47
+
+Affected Citizens:
+Estimated 320
+
+Status:
+Pending Approval
+
+==================================================
+19. CITIZEN TRACKING
+==================================================
+
+Citizen can view:
+
+MY CASES
+
+Tabs:
+
+All
+Pending
+In Progress
+Resolved
+Reopened
+
+Case card:
+
+#P-1024
+Pothole
+
+HIGH
+
+In Progress
+
+Sector 14
+
+47 reports
+
+Tap:
+
+VIEW CASE
+
+==================================================
+20. CASE DETAIL PAGE
+==================================================
+
+Show:
+
+Civic Case ID
+Issue
+Category
+Priority
+Location
+Department
+Status
+Report count
+Created date
+Last updated
+
+Map
+
+Evidence
+
+Timeline:
+
+Complaint Submitted
+↓
+AI Analysis
+↓
+Duplicate Check
+↓
+Civic Case Created
+↓
+Priority Assigned
+↓
+Department Assigned
+↓
+Work Started
+↓
+Resolution Evidence
+↓
+AI Verification
+↓
+Resolved
+
+==================================================
+21. NEARBY ISSUES
+==================================================
+
+Citizen taps:
+
+NEARBY
+
+Show full-screen GIS map.
+
+Use live location.
+
+Markers:
+
+🔴 Critical
+🟠 High
+🟡 Medium
+🟢 Low
+
+Filters:
+
+All
+Roads
+Transport
+Waste
+Water
+Infrastructure
+Safety
+
+Never show citizen personal information.
+
+Example:
+
+Civic Case #P-1024
+
+Pothole
+
+120m away
+
+HIGH
+
+47 related reports
+
+Work In Progress
+
+==================================================
+22. TRANSPORTATION & MOBILITY FOCUS
+==================================================
+
+This MUST be prominent because the selected problem statement is:
+
+PS 26205
+Transportation & Logistics
+
+Create a section:
+
+TRANSPORT & MOBILITY HEALTH
+
+Metrics:
+
+Road Condition: 78/100
+Active Mobility Issues: 142
+Critical Road Hazards: 18
+Pothole Civic Cases: 86
+Road Obstructions: 31
+Parking Hotspots: 12
+
+Create:
+
+MOBILITY HOTSPOT MAP
+
+Layers:
+
+Potholes
+Road damage
+Obstructions
+Illegal parking
+Traffic signals
+Bus stops
+Pedestrian hazards
+
+Create:
+
+URBAN INFRASTRUCTURE HOTSPOTS
+
+This makes the project clearly relevant to the selected theme.
+
+==================================================
+23. EMPLOYEE COMMAND CENTER
+==================================================
+
+Employee login goes to:
+
+/employee
+
+Desktop/tablet-first.
+
+Title:
+
+MUNICIPAL COMMAND CENTER
+
+Metrics:
+
+Total Reports
+Pending Approval
+In Progress
+Resolved
+High Priority
+Critical
+SLA Breached
+
+Example:
+
+12,540 Total Reports
+126 Pending Approval
+2,340 In Progress
+8,920 Resolved
+186 High Priority
+27 Critical
+42 SLA Breached
+
+==================================================
+24. EMPLOYEE PENDING APPROVALS
+==================================================
+
+Route:
+
+/employee/approvals
+
+Show:
+
+Civic Case ID
+Issue
+Category
+Priority
+AI Confidence
+Report Count
+Location
+Recommended Department
+Status
+Review
+
+Click Review.
+
+Show two-column layout.
+
+LEFT:
+
+Evidence
+Image
+Video
+Voice transcript
+Location
+Map
+Citizen description
+
+RIGHT:
+
+AI ANALYSIS
+
+Category
+Severity
+Confidence
+Duplicate Score
+Priority
+Affected Citizens
+Recommended Department
+
+Actions:
+
+APPROVE FOR RESOLUTION
+REJECT
+REQUEST MORE INFORMATION
+
+Reject/request information requires a reason.
+
+==================================================
+25. ASSIGNED CASES
+==================================================
+
+Route:
+
+/employee/cases
+
+Tabs:
+
+All
+New
+In Progress
+SLA Warning
+SLA Breached
+Resolved
+
+Columns:
+
+Case ID
+Issue
+Priority
+Location
+Created
+Department
+SLA
+Status
+Action
+
+Actions:
+
+Start Work
+Assign Employee
+Update Status
+Upload Evidence
+Escalate
+Mark Resolved
+
+==================================================
+26. RESOLUTION WORKFLOW
+==================================================
+
+Employee opens a case.
+
+Status:
+
+Pending
+→ Approved
+→ Assigned
+→ Work In Progress
+→ Resolution Submitted
+→ AI Verification
+→ Resolved
+
+Employee uploads:
+
+AFTER RESOLUTION IMAGE
+
+Optional notes.
+
+Example:
+
+"Road surface repaired and pothole filled."
+
+Then AI verification:
+
+RESOLUTION VERIFICATION
+
+Likely Resolved
+
+Confidence:
+91%
+
+Show before/after evidence.
+
+Employee must confirm final resolution.
+
+Do not automatically declare a case resolved solely from mock AI.
+
+==================================================
+27. SLA SYSTEM
+==================================================
+
+Every Civic Case should have an SLA.
+
+Example:
+
+LOW:
+7 days
+
+MEDIUM:
+5 days
+
+HIGH:
+3 days
+
+CRITICAL:
+24 hours
+
+Show:
+
+SLA Remaining
+
+SLA Warning
+
+SLA Breached
+
+If breached:
+
+ESCALATION REQUIRED
+
+Workflow:
+
+Employee
+↓
+Department Supervisor
+↓
+Municipal Officer
+
+==================================================
+28. EMPLOYEE GIS MAP
+==================================================
+
+Route:
+
+/employee/map
+
+Full-screen map.
+
+Layers:
+
+Civic Cases
+Heatmap
+Critical issues
+Transport issues
+Potholes
+Obstructions
+Parking
+Waste
+Water
+Safety
+
+Filters:
+
+Category
+Priority
+Status
+Department
+Ward
+Date
+
+Use clustering for many markers.
+
+==================================================
+29. ANALYTICS
+==================================================
+
+Route:
+
+/employee/analytics
+
+Charts using Recharts.
+
+Show:
+
+Complaints over time
+Complaints by category
+Department performance
+Resolution rate
+Average resolution time
+SLA compliance
+Ward-wise complaints
+Transportation complaints
+Priority distribution
+
+TRANSPORTATION ANALYTICS:
+
+Potholes
+Road obstructions
+Parking issues
+Traffic signal problems
+Bus stop issues
+Pedestrian hazards
+
+==================================================
+30. AI ANALYTICS
+==================================================
+
+Show:
+
+AI Classification Confidence
+Duplicate Cases Detected
+Reports Linked to Existing Cases
+High Priority Issues Identified
+Department Routing Recommendations
+Resolution Verification
+
+IMPORTANT:
+
+All prototype values must be labelled:
+
+"Prototype / Demo Metrics"
+
+Do not present simulated metrics as real-world measured accuracy.
+
+==================================================
+31. CITY PULSE
+==================================================
+
+Create:
+
+CITY PULSE
+
+12,540 Reports
+8,920 Resolved
+2,340 Active
+186 High Priority
+27 Critical
+
+Label clearly:
+
+Prototype / Demo Data
+
+==================================================
+32. CIVIC HEALTH
+==================================================
+
+Create:
+
+CIVIC HEALTH
+
+82 / 100
+
+Prototype / Demo Aggregate Metric
+
+Breakdown:
+
+Road Infrastructure 78
+Waste Management 86
+Water Services 81
+Public Safety 88
+Street Infrastructure 80
+
+==================================================
+33. CIVIC RISK FORECAST
+==================================================
+
+Create:
+
+CIVIC RISK FORECAST
+
+Example:
+
+Ward 7
+
+Elevated pothole activity expected.
+
+Risk:
+74%
+
+This MUST be labelled:
+
+Prediction / Prototype
+
+Do not claim scientific accuracy.
+
+For the prototype use recent complaint counts/trends.
+
+==================================================
+34. NOTIFICATIONS
+==================================================
+
+Citizen notifications:
+
+AI analysis completed
+Civic Case created
+Report linked
+Department assigned
+Work started
+SLA warning
+Case resolved
+Resolution verified
+
+Example:
+
+✓ Civic Case #P-1024 updated
+
+Roads & Infrastructure has started work.
+
+Employee notifications:
+
+New high-priority case
+Critical case
+SLA warning
+SLA breach
+Escalation
+New approval request
+
+==================================================
+35. PROFILE
+==================================================
+
+Citizen profile:
+
+Name
+Email
+Phone
+Notification settings
+Privacy settings
+Security
+Logout
+
+Employee profile:
+
+Name
+Employee ID
+Department
+Role
+Notification settings
+Security
+Logout
+
+Do not expose unnecessary citizen information to normal employees.
+
+==================================================
+36. PROTECTED REPORTING
+==================================================
+
+Sensitive categories:
+
+Bribe / Corruption
+
+Use:
+
+PROTECTED REPORTING
+
+Text:
+
+"Your identity is protected from normal employee views. Authorized personnel may access identity information when required for case handling."
+
+Do NOT promise absolute anonymity.
+
+Sensitive cases should display:
+
+RESTRICTED CASE
+IDENTITY PROTECTED
+AUTHORIZED ACCESS ONLY
+
+==================================================
+37. SPAM CONTROL
+==================================================
+
+Prevent repeated submissions in the same category within 24 hours from the same citizen.
+
+If user attempts:
+
+REPORT LIMIT REACHED
+
+Show:
+
+You already reported a similar issue recently.
+
+Existing Civic Case:
+#P-1024
+
+Buttons:
+
+VIEW CASE
+TRACK CASE
+CONTACT SUPPORT
+
+Allow legitimate distinct cases when appropriate.
+
+==================================================
+38. AUTHENTICATION
+==================================================
+
+Implement:
+
+JWT authentication
+Password hashing
+Role-based authorization
+
+Roles:
+
+citizen
+employee
+admin
+
+Protect API endpoints.
+
+Do not trust role information from frontend.
+
+Verify role server-side.
+
+==================================================
+39. DATABASE
+==================================================
+
+Use PostgreSQL.
+
+Models:
+
+User
+
+id
+name
+email
+password_hash
+role
+phone
+department
+is_active
+created_at
+updated_at
+
+Complaint
+
+id
+complaint_number
+civic_case_id
+citizen_id
+category
+subcategory
+title
+description
+latitude
+longitude
+accuracy
+address
+location_timestamp
+priority_score
+priority_level
+severity
+status
+department
+ai_confidence
+duplicate_score
+is_duplicate
+is_anonymous
+requires_approval
+sla_deadline
+created_at
+updated_at
+
+CivicCase
+
+id
+case_number
+title
+category
+subcategory
+description
+latitude
+longitude
+address
+department
+priority_score
+priority_level
+status
+report_count
+affected_population
+sla_deadline
+created_at
+updated_at
+
+Evidence
+
+id
+complaint_id
+file_url
+file_type
+file_name
+created_at
+
+Resolution
+
+id
+complaint_id
+employee_id
+notes
+before_image
+after_image
+ai_verification
+verification_confidence
+resolved_at
+created_at
+
+Notification
+
+id
+user_id
+title
+message
+type
+is_read
+created_at
+
+Escalation
+
+id
+complaint_id
+from_role
+to_role
+reason
+created_at
+
+ActivityLog
+
+id
+user_id
+action
+entity_type
+entity_id
+description
+created_at
+
+==================================================
+40. API
+==================================================
+
+Implement:
+
+AUTH
+
+POST /api/auth/login
+POST /api/auth/register
+GET /api/auth/me
+
+COMPLAINTS
+
+GET /api/complaints
+POST /api/complaints
+GET /api/complaints/{id}
+PATCH /api/complaints/{id}
+POST /api/complaints/{id}/analyze
+POST /api/complaints/{id}/resolve
+POST /api/complaints/{id}/escalate
+
+CIVIC CASES
+
+GET /api/civic-cases
+GET /api/civic-cases/{id}
+POST /api/civic-cases/{id}/link
+
+AI
+
+POST /api/ai/analyze
+POST /api/ai/duplicate-check
+POST /api/ai/priority
+POST /api/ai/route
+POST /api/ai/verify-resolution
+
+MAP
+
+GET /api/map/issues
+GET /api/map/heatmap
+
+ANALYTICS
+
+GET /api/analytics/overview
+GET /api/analytics/categories
+GET /api/analytics/departments
+GET /api/analytics/transport
+GET /api/analytics/ai
+
+NOTIFICATIONS
+
+GET /api/notifications
+PATCH /api/notifications/{id}/read
+
+==================================================
+41. AI SERVICES
+==================================================
+
+Create clean service abstractions.
+
+ai_service.py
+
+duplicate_service.py
+
+priority_service.py
+
+routing_service.py
+
+sla_service.py
+
+resolution_service.py
+
+location_service.py
+
+notification_service.py
+
+The AI service should initially use deterministic rules.
+
+Example:
+
+Input:
+
+Large pothole near Central Market causing danger to two-wheelers.
+
+Output:
+
+{
+  "category": "Potholes & Road Damage",
+  "subcategory": "Large Road Pothole",
+  "severity": "High",
+  "confidence": 0.94,
+  "priority_score": 87,
+  "department": "Roads & Infrastructure",
+  "duplicate_score": 0.94
+}
+
+Make it easy to replace the mock implementation with a real AI model later.
+
+==================================================
+42. REAL DEVICE FEATURES
+==================================================
+
+Implement real browser capabilities where supported:
+
+CAMERA:
+
+navigator.mediaDevices.getUserMedia()
+
+GPS:
+
+navigator.geolocation.watchPosition()
+
+VOICE:
+
+MediaRecorder API
+
+PWA:
+
+manifest
+service worker
+installable mobile experience
+
+If browser permissions are unavailable, provide graceful fallbacks.
+
+Never crash the application.
+
+==================================================
+43. PWA
+==================================================
+
+Make the citizen experience installable on mobile.
+
+Create:
+
+manifest.json
+
+Include:
+
+name:
+Nagar Sarvadarshin
+
+short_name:
+Nagar
+
+display:
+standalone
+
+theme_color:
+dark smart-city theme
+
+Add suitable icons/placeholders.
+
+Add basic service worker support.
+
+The citizen should be able to install the app from a mobile browser.
+
+==================================================
+44. MOBILE UX
+==================================================
+
+Optimize for:
+
+360px
+390px
+412px
+768px
+
+Use:
+
+large touch targets
+bottom navigation
+sticky action buttons
+mobile sheets
+mobile modals
+camera preview
+map interactions
+swipe-friendly cards
+
+The main REPORT ISSUE button must always be easy to reach.
+
+==================================================
+45. DESKTOP UX
+==================================================
+
+Employee command center should support:
+
+1280px+
+1440px+
+1920px
+
+Use:
+
+left sidebar
+top header
+metrics
+tables
+maps
+charts
+filters
+
+Responsive tablet layout too.
+
+==================================================
+46. ERROR STATES
+==================================================
+
+Never show raw errors.
+
+Implement:
+
+Invalid login
+Session expired
+Camera permission denied
+GPS permission denied
+GPS unavailable
+Location inaccurate
+AI analysis failed
+Upload failed
+Unsupported file
+Duplicate check failed
+Case creation failed
+No cases found
+No notifications
+Map loading
+Network unavailable
+
+Example:
+
+"Unable to access your camera. Please allow camera permission or upload an image instead."
+
+==================================================
+47. LOADING STATES
+==================================================
+
+Use skeletons.
+
+Dashboard skeletons
+Map loading
+Case loading
+Analytics loading
+AI processing animation
+
+AI processing should feel realistic but not excessive.
+
+==================================================
+48. TOASTS
+==================================================
+
+Show:
+
+Complaint submitted
+AI analysis complete
+Location captured
+Linked to Civic Case
+Case created
+Case updated
+Evidence uploaded
+Case escalated
+Case resolved
+Notification sent
+
+==================================================
+49. DEMO DATA
+==================================================
+
+Seed PostgreSQL with:
+
+30+ complaints
+15+ Civic Cases
+multiple duplicate groups
+8+ issue categories
+multiple departments
+high priority cases
+critical cases
+resolved cases
+active cases
+SLA warnings
+SLA breaches
+citizens
+employees
+notifications
+resolutions
+
+Use realistic Indian city-style locations:
+
+Central Market
+Sector 14
+City Railway Station
+Main Bus Stand
+University Road
+Municipal Hospital
+Ward 7
+Ward 12
+Industrial Area
+Residential Sector 8
+
+Use safe demo coordinates.
+
+Do NOT expose real people's personal information.
+
+==================================================
+50. DEMO ACCOUNTS
+==================================================
+
+Citizen:
+
+citizen@demo.com
+citizen123
+
+Employee:
+
+employee@demo.com
+employee123
+
+Admin:
+
+admin@demo.com
+admin123
+
+==================================================
+51. COMPLETE DEMO FLOW
+==================================================
+
+The following flow MUST actually work end-to-end.
+
+CITIZEN:
+
+1. Open application.
+2. Login as citizen.
+3. Citizen home opens.
+4. Tap REPORT ISSUE.
+5. Camera opens.
+6. GPS permission is requested.
+7. Capture image.
+8. Current location appears.
+9. Confirm location.
+10. Optionally record voice.
+11. AI analysis starts.
+12. AI identifies:
+    Pothole
+13. Confidence:
+    94%
+14. Severity:
+    High
+15. Priority:
+    87
+16. Department:
+    Roads & Infrastructure
+17. Duplicate search runs.
+18. Existing Civic Case #P-1024 found.
+19. Similarity:
+    94%
+20. 47 related reports shown.
+21. Citizen links report.
+22. Case appears in My Cases.
+23. Citizen tracks case.
+24. Employee notification is generated.
+
+EMPLOYEE:
+
+25. Logout.
+26. Login as employee.
+27. Command Center opens.
+28. Open Civic Case #P-1024.
+29. Review evidence.
+30. View location on map.
+31. View AI analysis.
+32. Approve.
+33. Start Work.
+34. Upload after-resolution image.
+35. Add resolution notes.
+36. AI resolution verification runs.
+37. Shows:
+    Likely Resolved
+    91%
+38. Employee confirms.
+39. Case becomes Resolved.
+40. Citizen receives notification.
+41. Citizen opens case.
+42. Timeline shows complete resolution.
+
+THIS FLOW MUST WORK WITH ACTUAL FRONTEND → API → DATABASE.
+
+Do not fake the complete flow only with frontend state.
+
+==================================================
+52. ADMIN
+==================================================
+
+Create basic admin dashboard.
+
+Admin can view:
+
+Departments
+Employees
+Categories
+SLA Rules
+AI Configuration
+System Activity
+
+Admin should not need a huge complex interface.
+
+Keep it functional and clean.
+
+==================================================
+53. SECURITY
+==================================================
+
+Implement:
+
+Password hashing
+JWT
+Role-based authorization
+Server-side role validation
+Pydantic validation
+File validation
+File size limits
+Safe upload handling
+Protected APIs
+No password exposure
+No password hash exposure
+No unnecessary personal information
+Protected sensitive cases
+
+==================================================
+54. PERFORMANCE
+==================================================
+
+Optimize:
+
+images
+map markers
+API requests
+database queries
+loading states
+
+Use lazy loading where appropriate.
+
+Do not make the application unnecessarily heavy.
+
+==================================================
+55. ACCESSIBILITY
+==================================================
+
+Implement:
+
+semantic HTML
+keyboard navigation
+focus states
+labels
+accessible buttons
+accessible dialogs
+good contrast
+alt text
+
+Camera controls must have accessible labels.
+
+==================================================
+56. README
+==================================================
+
+Create a strong README with:
+
+Project Overview
+Problem Statement
+PS ID 26205
+Theme: Transportation & Logistics
+Category: Software
+Problem
+Solution
+Innovation
+Core Workflow
+Mobile Camera Reporting
+Live GPS
+AI Classification
+Duplicate Detection
+Civic Cases
+Priority Engine
+Department Routing
+SLA
+GIS
+Transportation Focus
+Citizen Workflow
+Employee Workflow
+Admin Workflow
+Architecture
+Tech Stack
+Database
+API
+Installation
+Environment Variables
+Demo Credentials
+Testing
+Future Scope
+
+Future Scope:
+
+Real computer vision
+Real LLM
+Embeddings
+Vector database
+Image similarity
+Predictive civic risk
+Traffic data
+IoT
+Satellite data
+Municipal APIs
+Multi-city deployment
+
+==================================================
+57. DO NOT OVERENGINEER
+==================================================
+
+Do NOT create microservices.
+
+Do NOT create hundreds of tiny files.
+
+Use a clean monorepo.
+
+Use:
+
+Next.js
+FastAPI
+PostgreSQL
+
+Keep the architecture understandable for a BTech/hackathon team.
+
+==================================================
+58. IMPORTANT IMPLEMENTATION RULE
+==================================================
+
+Do NOT just create static screens.
+
+Every major feature must be connected.
+
+Frontend
+↓
+FastAPI
+↓
+PostgreSQL
+
+The following must use real API calls:
+
+Login
+Register
+Create complaint
+Upload evidence
+AI analysis
+Duplicate detection
+Civic Case creation
+Case linking
+Case tracking
+Employee approval
+Case assignment
+Status update
+Resolution
+Notifications
+Analytics
+
+==================================================
+59. IMPORTANT UI RULE
+==================================================
+
+The application must NOT feel like an ordinary CRUD dashboard.
+
+The mobile citizen flow should feel like:
+
+"Open camera → capture problem → location automatically attached → AI understands it → done."
+
+The employee experience should feel like:
+
+"Municipal command center → see what matters → act → verify → resolve."
+
+==================================================
+60. FINAL HACKATHON DEMO SCREEN
+==================================================
+
+Create a polished demo landing/overview accessible from /about.
+
+Show:
+
+NAGAR SARVADARSHIN
+
+AI-POWERED CIVIC INTELLIGENCE
+
+"SEE THE PROBLEM.
+LOCATE THE IMPACT.
+RESOLVE THE CITY."
+
+Visual:
+
+Citizen Phone
+↓
+Camera
+↓
+GPS
+↓
+AI
+↓
+Civic Case
+↓
+Municipal Command Center
+↓
+Resolution
+
+Main statement:
+
+ONE PROBLEM.
+ONE CIVIC CASE.
+ONE COORDINATED RESPONSE.
+
+Show:
+
+PS 26205
+TRANSPORTATION & LOGISTICS
+SOFTWARE
+
+==================================================
+61. DEVELOPMENT PROCESS
+==================================================
+
+Do NOT stop after generating the UI.
+
+Work in this order:
+
+1. Inspect the existing repository.
+2. Reuse useful existing code.
+3. Set up project structure.
+4. Set up PostgreSQL.
+5. Create database models.
+6. Create seed data.
+7. Create FastAPI backend.
+8. Create authentication.
+9. Create AI services.
+10. Create duplicate detection.
+11. Create priority engine.
+12. Create routing engine.
+13. Create SLA engine.
+14. Create notification system.
+15. Create mobile citizen frontend.
+16. Implement camera.
+17. Implement GPS.
+18. Implement voice recording.
+19. Implement map.
+20. Implement Civic Cases.
+21. Implement employee dashboard.
+22. Implement employee case workflow.
+23. Implement resolution verification.
+24. Implement analytics.
+25. Implement PWA.
+26. Connect frontend to backend.
+27. Test APIs.
+28. Test authentication.
+29. Test mobile UI.
+30. Test camera permission flow.
+31. Test GPS permission flow.
+32. Test citizen → Civic Case flow.
+33. Test employee → resolution flow.
+34. Fix all errors.
+35. Run final end-to-end test.
+
+==================================================
+62. CRITICAL REQUIREMENT
+==================================================
+
+Do not leave critical TODOs.
+
+Do not say:
+
+"Implement later."
+
+Do not create buttons that do nothing.
+
+If a real AI model is unavailable:
+
+use deterministic prototype intelligence.
+
+If real reverse geocoding is unavailable:
+
+use demo address mapping.
+
+If a browser doesn't support a feature:
+
+show a graceful fallback.
+
+But the complete application must remain functional.
+
+==================================================
+63. FINAL TEST
+==================================================
+
+Before considering the project complete, verify:
+
+✓ Citizen login
+✓ Employee login
+✓ Admin login
+✓ Mobile layout
+✓ Camera permission
+✓ Camera preview
+✓ Capture image
+✓ GPS permission
+✓ Live location
+✓ Map
+✓ Voice recording
+✓ AI classification
+✓ Duplicate detection
+✓ Civic Case creation
+✓ Civic Case linking
+✓ Priority calculation
+✓ Department routing
+✓ Citizen tracking
+✓ Employee approval
+✓ Employee assignment
+✓ SLA
+✓ Escalation
+✓ Resolution evidence
+✓ AI resolution verification
+✓ Case resolution
+✓ Citizen notification
+✓ Analytics
+✓ Transportation dashboard
+✓ PWA installation
+✓ Responsive design
+✓ Error handling
+✓ Loading states
+✓ Authentication protection
+✓ Database persistence
+
+==================================================
+64. FINAL INSTRUCTION TO REPLIT AGENT
+==================================================
+
+Build the application now.
+
+Do not only provide an explanation.
+
+Create and modify the actual files.
+
+Install the required dependencies.
+
+Run the application.
+
+Test it.
+
+Fix TypeScript errors.
+
+Fix Python errors.
+
+Fix API errors.
+
+Fix database errors.
+
+Fix responsive UI problems.
+
+Fix authentication problems.
+
+Fix camera/GPS permission handling.
+
+Verify the complete:
+
+CITIZEN MOBILE
+→ CAMERA
+→ GPS
+→ AI
+→ DUPLICATE DETECTION
+→ CIVIC CASE
+→ EMPLOYEE COMMAND CENTER
+→ RESOLUTION
+→ CITIZEN NOTIFICATION
+
+flow.
+
+At the end, provide:
+
+1. What was built
+2. How to run it
+3. Demo credentials
+4. Important routes
+5. Any remaining limitations
+
+Do not claim a feature is implemented unless it actually works.
